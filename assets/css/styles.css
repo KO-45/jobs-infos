@@ -1,0 +1,248 @@
+/* Estilos base */
+/* Define la fuente predeterminada para todo el cuerpo del documento. */
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Barra de navegación */
+/* Se eliminaron los estilos duplicados de 'nav' que ahora están en 'menu.css' */
+/* nav {
+    background-color: #fd4f00;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+} */
+
+/* Contenedor principal */
+/* Define el ancho máximo y el centrado para el contenido principal de la página. */
+.max-w-6xl {
+    max-width: 1200px; /* Ancho máximo del contenedor. */
+    margin: 0 auto; /* Centra el contenedor horizontalmente. */
+    padding: 0 1rem; /* Espaciado horizontal interno para evitar que el contenido toque los bordes. */
+}
+
+/* Espaciado y alineación */
+/* Estilos para contenedores que usan Flexbox para organizar sus elementos. */
+.flex {
+    display: flex; /* Habilita Flexbox. */
+    justify-content: space-between; /* Distribuye los elementos con espacio igual entre ellos. */
+    align-items: center; /* Alinea los elementos verticalmente al centro. */
+    padding: 1rem 0; /* Espaciado vertical interno. */
+}
+
+/* Estilos para los enlaces */
+/* Estilos generales para todos los elementos de enlace (<a>). */
+a {
+    color: white; /* Color de texto predeterminado para los enlaces. */
+    text-decoration: none; /* Elimina el subrayado predeterminado de los enlaces. */
+    transition: color 0.3s; /* Transición suave para el cambio de color al interactuar. */
+}
+a:hover {
+    color: #4a4a4a; /* Color del texto del enlace al pasar el ratón por encima. */
+}
+
+/* Estilos para el botón del menú móvil */
+/* Estilos para los botones, probablemente usados para un menú móvil o similar. */
+button {
+    background: none; /* Elimina el fondo predeterminado del botón. */
+    border: none; /* Elimina el borde predeterminado del botón. */
+    cursor: pointer; /* Cambia el cursor a una mano al pasar por encima, indicando que es interactivo. */
+}
+
+/* Estilos para la imagen */
+/* Estilos generales para todas las imágenes. */
+img {
+    height: 2.5rem; /* Altura fija de la imagen. */
+    width: 2.5rem; /* Ancho fijo de la imagen. */
+    border-radius: 50%; /* Hace que la imagen sea completamente redonda. */
+}
+
+/* Espaciado entre elementos */
+/* Clases para añadir espaciado horizontal entre elementos hermanos. */
+.space-x-4 > * + * {
+    margin-left: 1rem; /* Añade un margen izquierdo de 1rem a todos los elementos que no son el primero dentro de .space-x-4. */
+}
+
+.space-x-8 > * + * {
+    margin-left: 2rem; /* Añade un margen izquierdo de 2rem a todos los elementos que no son el primero dentro de .space-x-8. */
+}
+
+/* Enlaces en la navegación */
+/* Se eliminaron los estilos específicos para 'nav a' y 'nav a:hover' ya que ahora están en 'menu.css' */
+/* nav a {
+    color: white;
+    transition: color 0.3s ease;
+}
+nav a:hover {
+    color: #f0f0f0;
+} */
+
+/* Estilos adicionales para la navegación */
+/* Clases para aplicar colores de fondo específicos a elementos dentro de la navegación. */
+/* Se asume que estas clases podrían aplicarse a elementos dentro del menú, pero no son estilos directos del menú. */
+nav .bg-blue-600 {
+    background-color: #2563eb; /* Color de fondo azul (similar a Tailwind blue-600). */
+}
+nav .bg-blue-600:hover { /* Efecto hover para el elemento con bg-blue-600 dentro de nav. */
+    background-color: #1d4ed8; /* Color de fondo azul más oscuro al pasar el ratón (similar a Tailwind blue-700). */
+}
+
+/* Sección principal (Hero) */
+/* Estilos para la sección de inicio o "Hero". */
+#inicio {
+    background-color: #c53030; /* Color de fondo de la sección de inicio (naranja-rojizo). */
+}
+
+/* Animación para la sección principal */
+/* Define una animación de "fade-in" para elementos dentro de la sección de inicio. */
+#inicio .animate-fade-in {
+    animation: fadeIn 1.5s ease-out forwards; /* Aplica la animación 'fadeIn' durante 1.5s, con un efecto de aceleración/desaceleración y mantiene el estado final. */
+}
+
+/* Fotogramas clave para la animación fade-in */
+/* Define los pasos de la animación 'fadeIn'. */
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* Empieza completamente transparente. */
+        transform: translateY(20px); /* Empieza 20px más abajo. */
+    }
+    to {
+        opacity: 1; /* Termina completamente opaco. */
+        transform: translateY(0); /* Termina en su posición original. */
+    }
+}
+
+/* Estilos adicionales para la sección principal */
+/* Clases para aplicar colores de fondo, texto y bordes dentro de la sección de inicio. */
+#inicio .bg-white {
+    background-color: white; /* Color de fondo blanco. */
+}
+#inicio .text-primary-orange { /* Clase para texto con el color naranja principal. */
+    color: #fd4f00; /* Color de texto naranja. */
+}
+#inicio .bg-gray-100-hover:hover { /* Efecto hover para un fondo gris claro. */
+    background-color: #f3f4f6; /* Color de fondo gris muy claro al pasar el ratón. */
+}
+#inicio .border-white {
+    border-color: white; /* Color de borde blanco. */
+}
+#inicio .text-primary-orange-hover:hover { /* Efecto hover para texto con el color naranja principal. */
+    color: #fd4f00; /* Color de texto naranja al pasar el ratón. */
+}
+
+/* Sección de investigación */
+/* Estilos para la sección de investigación. */
+#investigacion .text-primary-orange { /* Clase para texto con el color naranja principal en la sección de investigación. */
+    color: #fd4f00;
+}
+#investigacion .bg-primary-orange { /* Clase para fondo con el color naranja principal en la sección de investigación. */
+    background-color: #fd4f00;
+}
+
+/* Efecto hover para tarjetas (general) */
+/* Define un efecto de hover reutilizable para elementos tipo tarjeta. */
+.card-hover-effect {
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave para el movimiento y la sombra. */
+}
+.card-hover-effect:hover {
+    transform: translateY(-5px); /* Mueve la tarjeta 5px hacia arriba al pasar el ratón. */
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); /* Añade una sombra más pronunciada al pasar el ratón. */
+}
+
+/* Estilos adicionales para la sección de investigación */
+/* Clases para aplicar colores de fondo específicos en la sección de investigación. */
+#investigacion .bg-orange-100 {
+    background-color: #fffaf0; /* Color de fondo naranja muy claro. */
+}
+#investigacion .bg-blue-50 {
+    background-color: #eff6ff; /* Color de fondo azul muy claro. */
+}
+
+/* Sección de pruebas prácticas */
+/* Esta sección utiliza el efecto de hover de tarjeta general definido anteriormente. */
+/* #pruebas-practicas .card-hover-effect ya está definido arriba y se aplica a cualquier elemento con esa clase. */
+
+/* Sección de artículos */
+/* Estilos para la sección de artículos. */
+#articulos .text-primary-orange { /* Clase para texto con el color naranja principal en la sección de artículos. */
+    color: #fd4f00;
+}
+#articulos .bg-primary-orange { /* Clase para fondo con el color naranja principal en la sección de artículos. */
+    background-color: #fd4f00;
+}
+
+/* Estilos para imágenes de tarjetas */
+/* Estilos para contenedores de imagen dentro de las tarjetas de artículos. */
+#articulos .card-image {
+    overflow: hidden; /* Oculta cualquier parte de la imagen que se desborde del contenedor. */
+}
+#articulos .card-image img {
+    transition: transform 0.3s ease; /* Transición suave para el efecto de zoom de la imagen. */
+}
+#articulos .card-hover-effect:hover .card-image img {
+    transform: scale(1.05); /* Aumenta el tamaño de la imagen en un 5% al pasar el ratón por la tarjeta. */
+}
+
+/* Estilos adicionales para la sección de artículos */
+/* Clases para aplicar efectos de hover y bordes en la sección de artículos. */
+#articulos .text-primary-orange-hover:hover { /* Efecto hover para texto con el color naranja principal. */
+    color: #fd4f00;
+}
+#articulos .border-primary-orange { /* Borde con el color naranja principal. */
+    border-color: #fd4f00;
+}
+#articulos .bg-primary-orange-hover:hover { /* Efecto hover para fondo con el color naranja principal. */
+    background-color: #fd4f00;
+}
+
+/* Sección sobre mí */
+/* Estilos para la sección "Sobre Mí". */
+#sobremi .text-primary-orange { /* Clase para texto con el color naranja principal en la sección "Sobre Mí". */
+    color: #fd4f00;
+}
+#sobremi .bg-orange-100 {
+    background-color: #fffaf0; /* Color de fondo naranja muy claro. */
+}
+
+/* Sección de contacto */
+/* Estilos para la sección de contacto. */
+#contacto {
+    background-color: #1f2937; /* Color de fondo gris oscuro. */
+}
+#contacto .text-primary-orange { /* Clase para texto con el color naranja principal en la sección de contacto. */
+    color: #fd4f00;
+}
+#contacto .bg-primary-orange { /* Clase para fondo con el color naranja principal en la sección de contacto. */
+    background-color: #fd4f00;
+}
+#contacto .bg-gray-700 {
+    background-color: #374151; /* Color de fondo gris medio. */
+}
+
+/* Efectos de hover y focus para la sección de contacto */
+/* Clases para aplicar efectos de hover y focus a elementos interactivos en la sección de contacto. */
+#contacto .bg-gray-600-hover:hover { /* Efecto hover para un fondo gris más claro. */
+    background-color: #4b5563;
+}
+#contacto .border-blue-400-focus:focus { /* Borde azul al enfocar un elemento. */
+    border-color: #60a5fa;
+}
+#contacto .ring-blue-400-focus:focus { /* Sombra de anillo azul al enfocar un elemento. */
+    box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.5);
+}
+#contacto .bg-orange-600 {
+    background-color: #ea580c; /* Color de fondo naranja oscuro. */
+}
+#contacto .bg-primary-orange-hover:hover { /* Efecto hover para fondo con el color naranja principal. */
+    background-color: #fd4f00;
+}
+
+/* Pie de página */
+/* Estilos para el pie de página. */
+footer {
+    background-color: #111827; /* Color de fondo gris muy oscuro. */
+}
+footer .text-white-hover:hover { /* Efecto hover para texto blanco en el pie de página. */
+    color: white;
+}
