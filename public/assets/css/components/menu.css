@@ -1,0 +1,209 @@
+/* ===== Estilos para el menú de navegación ===== */
+
+/* Contenedor principal del menú */
+.menu {
+  background-color: #fd4f00;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Aumentar sombra */
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2); /* Borde sutil */
+}
+
+/* Layout interno y centrado */
+.menu .menu-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 4rem;
+}
+
+/* Lista principal del menú */
+.menu-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 2rem; /* espacio entre items */
+}
+
+/* Elemento individual del menú */
+.menu-item {
+  position: relative; /* para posicionar el submenu */
+}
+
+/* Enlace principal del menú */
+.menu-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease, background-color 0.3s ease; /* Añadir transición de fondo */
+  padding: 0.5rem;
+  display: block;
+  position: relative; /* Para el subrayado */
+}
+
+.menu-link:hover {
+  color: #f0f0f0;
+  background-color: rgba(255, 255, 255, 0.1); /* Fondo al pasar el ratón */
+}
+
+.menu-link::after {
+  content: '';
+  display: block;
+  height: 2px;
+  background: white; /* Color del subrayado */
+  width: 0;
+  transition: width 0.3s; /* Transición suave */
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.menu-link:hover::after {
+  width: 100%; /* Expandir el subrayado al pasar el ratón */
+}
+
+/* Submenú desplegable */
+.submenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fd4f00;
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 0;
+  display: none;
+  opacity: 0; /* Inicialmente oculto */
+  transition: opacity 0.3s ease; /* Transición de opacidad */
+}
+
+/* Mostrar submenú al pasar el ratón sobre el padre */
+.menu-item:hover > .submenu {
+  display: block;
+  opacity: 1; /* Mostrar con opacidad */
+}
+
+/* Ítem dentro del submenú */
+.submenu-item {
+  margin: 0;
+}
+
+.submenu-link {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  display: block;
+  transition: background-color 0.3s ease;
+}
+
+.submenu-link:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Fondo al pasar el ratón */
+}
+
+/* Estilo para el título del portal */
+.tech-portal-title {
+  display: inline-block;
+  margin-left: 15px; /* Espacio después del logo */
+  color: #2c3e50; /* Color oscuro profesional */
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  position: relative;
+  padding-left: 5px;
+  line-height: 1.2;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Línea decorativa izquierda */
+.tech-portal-title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10%;
+  height: 80%;
+  width: 3px;
+  background: linear-gradient(to bottom, #3498db, #2ecc71);
+  border-radius: 3px;
+}
+
+/* Versión responsiva */
+@media (max-width: 768px) {
+  .tech-portal-title {
+    font-size: 1.4rem;
+    margin-left: 10px;
+    padding-left: 10px;
+  }
+}
+
+/* Pequeña animación al aparecer */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+/* Botón de menú móvil opcional */
+.menu-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: none; /* Asegurarse de que se muestre en móvil */
+  font-size: 1.5rem; /* Aumentar tamaño del icono */
+  color: white; /* Color del icono */
+}
+
+.menu-toggle:hover {
+  transform: scale(1.1); /* Efecto de aumento al pasar el ratón */
+}
+
+/* Imagen de logo o avatar dentro del menú */
+.menu-logo {
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 50%;
+}
+
+/* Media query ejemplo: menú responsive */
+@media (max-width: 768px) {
+  .menu .menu-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .menu-list {
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    background-color: #fd4f00;
+    width: 100%;
+  }
+  
+  .menu-list.open {
+    display: flex;
+    animation: slideIn 0.3s ease; /* Añadir animación al abrir */
+  }
+  
+  .menu-toggle {
+    display: block;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
