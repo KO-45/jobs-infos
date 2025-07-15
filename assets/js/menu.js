@@ -105,7 +105,7 @@ function showError(message) {
 // Cargar e inicializar el menú cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', async () => {
     try {
-        const menuHtml = await loadMenu(['pages/menu.html', '../../pages/menu.html']);
+        const menuHtml = await loadMenu(['pages/menu.html']);
         document.getElementById('menu-container').innerHTML = menuHtml;
         initializeMenu(); // Inicializa el menú después de cargarlo
     } catch (error) {
