@@ -4,7 +4,7 @@
 document.addEventListener('DOMContentLoaded', function() {
 
     // Cargar el menú desde el archivo menu.html
-    fetch('../../pages/menu.html')
+    fetch('pages/menu.html')
         .then(response => response.text())
         .then(data => {
             document.getElementById('menu-container').innerHTML = data;
