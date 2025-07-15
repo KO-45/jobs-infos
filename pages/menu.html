@@ -1,47 +1,56 @@
-<!-- menu.html -->
-<nav class="menu">
-    
-    <div class="menu-container">
-        <!-- Logo o avatar si lo tienes -->
-        <img src="assets/images/icons/shield.png" alt="Logo" class="menu-logo">
-        <span class="tech-portal-title">Portal de Tecnología</span>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Tecnología</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Enlace a un archivo CSS externo -->
+</head>
+<body>
+    <nav class="menu" aria-label="Menú principal">
+        <div class="menu-container">
+            <a href="/index.html" class="menu-logo" aria-label="Ir a la página de inicio">
+                <img src="/assets/images/icons/shield.png" alt="Logo del Portal de Tecnología" class="menu-logo-img">
+            </a>
+            <span class="tech-portal-title">Portal de Tecnología</span>
 
-        <!-- Botón para abrir/cerrar menú en móvil -->
-        <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+            <!-- Botón para abrir/cerrar menú en móvil -->
+            <button class="menu-toggle" aria-label="Abrir menú">☰</button>
 
-        <!-- Lista principal del menú -->
-        <ul class="menu-list">
-            <li class="menu-item">
-                <a class="menu-link" href="index.html">Inicio</a>
-            </li>
+            <!-- Lista principal del menú -->
+            <ul class="menu-list">
+                <li class="menu-item">
+                    <a class="menu-link" href="/index.html">Inicio</a>
+                </li>
+                <li class="menu-item">
+                    <a class="menu-link" href="/pages/testers/testing.html">Testing</a>
+                    <ul class="submenu" aria-label="Submenú de Testing">
+                        <li class="submenu-item">
+                            <a class="submenu-link" href="/pages/testers/test1.html">Test 1</a>
+                        </li>
+                        <li class="submenu-item">
+                            <a class="submenu-link" href="/pages/testers/testing/test2.html">Test 2</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu-item">
+                    <a class="menu-link" href="/pages/ciber/ciber.html">Ciberseguridad</a>
+                    <ul class="submenu" aria-label="Submenú de Ciberseguridad">
+                        <li class="submenu-item">
+                            <a class="submenu-link" href="/pages/ciber/intro.html">Introducción</a>
+                        </li>
+                        <li class="submenu-item">
+                            <a class="submenu-link" href="/pages/ciber/avanzado.html">Avanzado</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu-item">
+                    <a class="menu-link" href="/recursos/recursos.html">Recursos</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
-            <li class="menu-item">
-                <a class="menu-link" href="pages/testers/testing.html">Testing</a>
-                <ul class="submenu">
-                    <li class="submenu-item">
-                        <a class="submenu-link" href="pages/testers/test1.html">Test 1</a>
-                    </li>
-                    <li class="submenu-item">
-                        <a class="submenu-link" href="testing/test2.html">Test 2</a>
-                    </li>
-                </ul>
-            </li>
-
-            <li class="menu-item">
-                <a class="menu-link" href="pages/ciber/ciber.html">Ciberseguridad</a>
-                <ul class="submenu">
-                    <li class="submenu-item">
-                        <a class="submenu-link" href="ciber/intro.html">Introducción</a>
-                    </li>
-                    <li class="submenu-item">
-                        <a class="submenu-link" href="ciber/avanzado.html">Avanzado</a>
-                    </li>
-                </ul>
-            </li>
-
-            <li class="menu-item">
-                <a class="menu-link" href="/recursos/recursos.html">Recursos</a>
-            </li>
-        </ul>
-    </div>
-</nav>
+    <script src="script.js"></script> <!-- Enlace a un archivo JavaScript externo -->
+</body>
+</html>
