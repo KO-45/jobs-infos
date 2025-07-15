@@ -5,60 +5,73 @@
  */
 function initializeMenu() {
     const menuItems = document.querySelectorAll('.menu-link');
-    
-    // Agrega un listener de clic a cada elemento del menú
-    menuItems.forEach(item => {
-        item.addEventListener('click', event => {
-            event.preventDefault();
-            const targetUrl = item.getAttribute('href');
-            window.location.href = targetUrl; // Redirige a la URL del enlace
-        });
-    });
-
-    // Manejo de submenús
     const submenus = document.querySelectorAll('.submenu');
     let hideTimeout;
 
-    menuItems.forEach(item => {
-        item.addEventListener('mouseover', () => {
-            clearTimeout(hideTimeout);
-            const submenu = item.nextElementSibling;
-            if (submenu) {
-                submenu.style.display = 'block';
-            }
-        });
+    // Ocultar todos los submenús al cargar la página
+    hideAllSubmenus(submenus);
 
-        item.addEventListener('mouseout', () => {
-            const submenu = item.nextElementSibling;
-            hideTimeout = setTimeout(() => {
-                if (submenu) {
-                    submenu.style.display = 'none';
-                }
-            }, 200);
-        });
+    // Agrega un listener de clic a cada elemento del menú
+    menuItems.forEach(item => {
+        item.addEventListener('click', handleMenuClick);
+        item.addEventListener('mouseover', () => showSubmenu(item, hideTimeout));
+        item.addEventListener('mouseout', () => hideSubmenu(item, hideTimeout));
     });
 
     // Agregar listener para el submenú
     submenus.forEach(submenu => {
-        submenu.addEventListener('mouseover', () => {
-            clearTimeout(hideTimeout);
-        });
-
-        submenu.addEventListener('mouseout', () => {
-            hideTimeout = setTimeout(() => {
-                submenu.style.display = 'none';
-            }, 1000);
-        });
+        submenu.addEventListener('mouseover', () => clearTimeout(hideTimeout));
+        submenu.addEventListener('mouseout', () => hideSubmenu(submenu, hideTimeout, 1000));
     });
+}
 
-    // Ocultar todos los submenús al cargar la página
+/**
+ * Maneja el clic en un elemento del menú.
+ * @param {Event} event - El evento de clic.
+ */
+function handleMenuClick(event) {
+    event.preventDefault();
+    const targetUrl = this.getAttribute('href');
+    window.location.href = targetUrl; // Redirige a la URL del enlace
+}
+
+/**
+ * Muestra el submenú correspondiente.
+ * @param {HTMLElement} item - El elemento del menú.
+ * @param {number} hideTimeout - El temporizador para ocultar el submenú.
+ */
+function showSubmenu(item, hideTimeout) {
+    clearTimeout(hideTimeout);
+    const submenu = item.nextElementSibling;
+    if (submenu) {
+        submenu.style.display = 'block';
+    }
+}
+
+/**
+ * Oculta el submenú correspondiente.
+ * @param {HTMLElement} item - El elemento del menú o submenú.
+ * @param {number} hideTimeout - El temporizador para ocultar el submenú.
+ * @param {number} [delay=200] - El tiempo de espera antes de ocultar.
+ */
+function hideSubmenu(item, hideTimeout, delay = 200) {
+    const submenu = item.nextElementSibling;
+    hideTimeout = setTimeout(() => {
+        if (submenu) {
+            submenu.style.display = 'none';
+        }
+    }, delay);
+}
+
+/**
+ * Oculta todos los submenús.
+ * @param {NodeList} submenus - Lista de submenús a ocultar.
+ */
+function hideAllSubmenus(submenus) {
     submenus.forEach(submenu => {
         submenu.style.display = 'none';
     });
 }
-
-// Espera a que el documento esté completamente cargado
-document.addEventListener('DOMContentLoaded', initializeMenu);
 
 /**
  * Carga el menú desde una lista de rutas posibles.
