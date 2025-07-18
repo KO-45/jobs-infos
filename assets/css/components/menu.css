@@ -30,7 +30,7 @@
 
 /* Elemento individual del menú */
 .menu-item {
-  position: relative; /* para posicionar el submenu */
+  position: left; /* para posicionar el submenu */
 }
 
 /* Enlace principal del menú */
