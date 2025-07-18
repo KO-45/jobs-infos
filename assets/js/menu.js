@@ -23,6 +23,26 @@ function initializeMenu() {
         submenu.addEventListener('mouseover', () => clearTimeout(hideTimeout));
         submenu.addEventListener('mouseout', () => hideSubmenu(submenu, hideTimeout, 1000));
     });
+
+    // Inicializar el botón de menú móvil
+    const menuToggle = document.querySelector('.menu-toggle');
+    const menuList = document.querySelector('.menu-list');
+
+    menuToggle.addEventListener('click', function() {
+        const isExpanded = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', !isExpanded);
+        menuList.classList.toggle('open');
+    });
+
+    // Cerrar menú al hacer clic en un enlace en móvil
+    if (window.innerWidth <= 768) {
+        document.querySelectorAll('.menu-link, .submenu-link').forEach(link => {
+            link.addEventListener('click', () => {
+                menuList.classList.remove('open');
+                menuToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+    }
 }
 
 /**
