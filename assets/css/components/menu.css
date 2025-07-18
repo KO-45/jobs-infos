@@ -92,7 +92,7 @@
 
 /* Ítem dentro del submenú */
 .submenu-item {
-  margin: 4;
+  margin: 0;
 }
 
 .submenu-link {
