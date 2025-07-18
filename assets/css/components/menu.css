@@ -72,7 +72,7 @@
   position: absolute;
   top: 100%;
   left: 50%;
-  /*transform: translateX(-50%); /* Ajusta el submenú hacia la izquierda por la mitad de su ancho */
+  transform: translateX(-50%); /* Ajusta el submenú hacia la izquierda por la mitad de su ancho */
   background-color: #fd4f00;
   z-index: 1000; /* Asegúrate de que el submenú esté por encima de otros elementos */
   list-style: none;
