@@ -93,6 +93,16 @@ function hideAllSubmenus(submenus) {
     });
 }
 
+// Agregar evento para evitar que el submenú se oculte al pasar el mouse sobre él
+document.querySelectorAll('.submenu').forEach(submenu => {
+    submenu.addEventListener('mouseover', () => {
+        clearTimeout(hideTimeout); // Detener el temporizador de ocultar
+    });
+    submenu.addEventListener('mouseout', () => {
+        hideSubmenu(submenu, hideTimeout); // Ocultar el submenú al salir
+    });
+});
+
 /**
  * Carga el menú desde una lista de rutas posibles.
  * @param {string[]} paths - Array de rutas a probar.
