@@ -71,7 +71,7 @@
 .submenu {
   position: absolute;
   top: 100%;
-  left: 10;
+  left: 100;
   background-color: #fd4f00;
   z-index: 1000; /* Asegúrate de que el submenú esté por encima de otros elementos */
   list-style: none;
