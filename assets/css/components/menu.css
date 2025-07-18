@@ -1,5 +1,6 @@
 /* ===== Estilos para el menú de navegación ===== */
-/* menu.css
+/* menu.css */
+
 /* Contenedor principal del menú */
 .menu {
   background-color: #fd4f00;
@@ -38,9 +39,10 @@
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease, background-color 0.3s ease; /* Añadir transición de fondo */
-  padding: 0.5rem;
+  padding: 0.5rem 1rem; /* Añadir padding para mejorar el área clickeable */
   display: block;
   position: relative; /* Para el subrayado */
+  border-radius: 4px; /* Bordes redondeados */
 }
 
 .menu-link:hover {
@@ -77,6 +79,7 @@
   display: none;
   opacity: 0; /* Inicialmente oculto */
   transition: opacity 0.3s ease; /* Transición de opacidad */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para el submenú */
 }
 
 /* Mostrar submenú al pasar el ratón sobre el padre */
@@ -150,7 +153,6 @@
   }
 }
 
-
 /* Botón de menú móvil opcional */
 .menu-toggle {
   background: none;
@@ -159,6 +161,7 @@
   display: none; /* Asegurarse de que se muestre en móvil */
   font-size: 1.5rem; /* Aumentar tamaño del icono */
   color: white; /* Color del icono */
+  transition: transform 0.3s ease; /* Transición suave para el hover */
 }
 
 .menu-toggle:hover {
