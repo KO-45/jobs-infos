@@ -69,7 +69,7 @@
 
 /* Submenú desplegable */
 .submenu {
-  position: space-between;
+  position: space;
   top: 100%;
   left: 0;
   background-color: #fd4f00;
