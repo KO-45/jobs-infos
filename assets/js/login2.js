@@ -103,7 +103,7 @@ function checkUsername() {
 
 // Check Email
 const emailErrorDisplay = document.getElementById("email_error");
-const emailRegEx = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+const emailRegEx = /^[a-zA-Z0-9]+([._-][a-zA-Z0-9]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z]{2,})+$/;
 let rEchk,
   rEchks = true;
 
