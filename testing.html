@@ -4,34 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Testing</title>
+    <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/styles.css"> <!-- Enlace al archivo CSS -->
     <link rel="stylesheet" href="assets/css/components/menu.css">
-    
+    <script src="assets/js/menu.js" defer></script> <!-- Enlace al archivo JS -->
 </head>
 <body>
-    <div id="menu-container"></div> <!-- Contenedor para el menú -->
-    <h1>Testing</h1>
-    
-    <section>
-        <h2>Tipos de Testing</h2>
-        <!-- Contenido se añadirá aquí -->
-    </section>
-    
-    <section>
-        <h2>Herramientas</h2>
-        <!-- Contenido se añadirá aquí -->
-    </section>
-    
-    <section>
-        <h2>Buenas Prácticas</h2>
-        <!-- Contenido se añadirá aquí -->
-    </section>
-    
-    <section>
-        <h2>Casos de Uso</h2>
-        <!-- Contenido se añadirá aquí -->
-    </section>
-    <script src="assets/js/menu.js" defer></script> <!-- Enlace al archivo JS -->
+    <div id="menu-container"></div><!-- Contenedor para el menú -->
+
+    <main class="container">
+        <header class="hero">
+            <h1 class="hero-title">Testing</h1>
+            <p class="hero-subtitle">Mejores prácticas y técnicas avanzadas</p>
+        </header>
+        
+        <section class="card mt-4">
+            <div class="section-header">
+                <h2 class="section-title">Fundamentos del Testing de Software</h2>
+                <div class="decorator-line"></div>
+            </div>
+            <p>
+                Se define el testing de software como el proceso de evaluar sistemas para verificar requisitos y detectar defectos antes de la puesta en producción, garantizando calidad y reduciendo riesgos. En el equipo, QA establece procesos y métricas, QC ejecuta la verificación de entregables, y el Tester planifica, diseña y realiza pruebas manuales y automatizadas, reporta incidencias y colabora con desarrolladores para corregirlas. 
+            </p>
+            <p>
+                El ciclo de pruebas incluye planificación (alcance, objetivos y criterios de aceptación), diseño de casos (escenarios, datos y resultados esperados), ejecución (manual y automática), seguimiento de defectos y cierre (métricas de cobertura y lecciones aprendidas). Para ello, el tester debe conocer el SDLC, metodologías ágil y waterfall, modelos y niveles de prueba, principios ISTQB y herramientas de gestión, automatización, rendimiento y seguridad. 
+            </p>
+            <p>
+                En pruebas funcionales de caja negra, especialmente web, el foco está en validar funciones sin ver el código: se planifican áreas críticas (formularios, flujos de compra, autenticación), se usan técnicas como partición de equivalencia y valores límite, y se combinan pruebas manuales y automatizadas. Las buenas prácticas incluyen verificar validaciones, responsividad, rendimiento, aspectos básicos de seguridad y organizar casos en suites temáticas para asegurar una cobertura eficiente y fomentar la colaboración continua.
+            </p>
+        </section>
+
+        <section class="card mt-4">
+            <div class="section-header">
+                <h2 class="section-title">Machine Learning para Testers</h2>
+                <div class="decorator-line"></div>
+            </div>
+            <div class="feature-grid">
+                El uso de Machine Learning y LLMs puede facilitar enormemente el trabajo de los testers funcionales web mediante ideas prácticas como:
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📋</div>
+                    <h3 class="feature-title">Generación automática</h3>
+                    <p class="feature-desc">Casos de prueba generados mediante IA</p>
+                    <ul>
+                        <li>Priorización predictiva basada en datos históricos de fallos.</li>
+                        <li>Detección de anomalías en tiempos de ejecución mediante hojas de cálculo.</li>
+                        <li>Resumen de logs extensos para identificar causas de errores.</li>
+                        <li>Creación rápida de datos de prueba mediante prompts.</li>
+                        <li>Agente chatbot-explorador de UI.</li>
+                        <li>Bots de checklist interactivos integrados en herramientas como Slack o Teams.</li>
+                        <li>Explicación de resultados de test con LLM.</li>
+                        <li>Revisión de casos de prueba o reportes para mejorar su claridad y completitud.</li>
+                        <li>Grabación de flujos en lenguaje natural y transformación automática a pruebas funcionales.</li>
+                    </ul>               
+                </div>
+            </div>
+        </section>
+
+        <section class="mt-4">
+            <h2>Buenas Prácticas</h2>
+            <p>
+                <!-- Contenido se añadirá aquí -->
+                Aquí se pueden incluir las mejores prácticas en el testing de software, como la importancia de la documentación, la colaboración entre equipos y la automatización de pruebas.
+            </p>
+        </section>
+        
+        <section class="mt-4">
+            <h2>Casos de Uso</h2>
+            <p>
+                <!-- Contenido se añadirá aquí -->
+                Aquí se pueden describir casos de uso específicos donde el testing ha sido crucial para el éxito de un proyecto.
+            </p>
+        </section>
+    </main> 
 </body>
 </html>
 

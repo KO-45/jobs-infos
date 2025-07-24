@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Portal de Tecnología</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/components/menu.css">
+    <link rel="stylesheet" href="assets/css/components/login.css">
+    <script src="assets/js/menu.js"></script> <!-- Enlace al archivo JavaScript del menú -->
+</head>
+<body>
+    <div id="menu-container"></div> <!-- Contenedor para el menú -->
+    <header class="hero-login">
+        <h1 class="hero-title">Acceso Seguro</h1>
+        <p class="hero-subtitle">
+            Ingrese sus credenciales para acceder.
+        </p>
+    </header>
+    
+    <main>
+        <section class="card-login">
+            <form id="loginForm">
+                <div class="form-group-login">
+                    <label for="username">Usuario:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                
+                <div class="form-group-login">
+                    <label for="password">Contraseña:</label>
+                    <input type="password" id="password" name="password" required>
+                    <p class="password-hint">La contraseña debe tener al menos 8 caracteres, incluyendo símbolos especiales (@#$%^&*).</p>
+                </div>
+
+                <div class="form-group-login">
+                    <label for="validationType">Tipo de Validación:</label>
+                    <select id="validationType">
+                        <option value="secure">Segura (mínimo 8 caracteres, símbolos especiales)</option>
+                        <option value="vulnerable">Vulnerable (mínimo 4 caracteres)</option>
+                    </select>
+                </div>
+                
+                <div class="attempts-counter" id="attemptsCounter">
+                    Intentos restantes: 3
+                </div>
+                
+                <button type="submit" id="loginButton">Iniciar Sesión</button>
+                <div id="errorMessage" class="error-message-login"></div>
+
+                <div class="form-group-login captcha-container">
+                    <label>CAPTCHA: <span id="captchaQuestion"></span></label>
+                    <input type="text" id="captchaAnswer" placeholder="Respuesta" required>
+                    <small id="captchaError" class="error-message"></small>
+                </div>
+                
+                <button type="submit" id="loginButton">Iniciar Sesión</button>
+            </form>
+        </section>
+    </main>
+
+    <script src="assets/js/login.js"></script> <!-- Enlace al archivo JavaScript del login -->
+</body>
+</html>

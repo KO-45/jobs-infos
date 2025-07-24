@@ -1,6 +1,20 @@
 /* ===== Estilos para el menú de navegación ===== */
 /* menu.css */
 
+/* Estilos para el botón del menú móvil */
+button {
+    background: none; /* Elimina el fondo predeterminado */
+    border: none; /* Elimina el borde predeterminado */
+    cursor: pointer; /* Cambia el cursor a una mano al pasar por encima */
+}
+
+/* Estilos para la imagen */
+img {
+    height: 2.5rem; /* Altura fija de la imagen */
+    width: 2.5rem; /* Ancho fijo de la imagen */
+    border-radius: 50%; /* Hace que la imagen sea completamente redonda */
+}
+
 /* Contenedor principal del menú */
 .menu {
   background-color: #fd4f00;
@@ -25,7 +39,7 @@
   margin: 0;
   padding: 0;
   display: flex;
-  gap: 2rem; /* espacio entre items */
+  gap: 0; /* espacio entre items */
 }
 
 /* Elemento individual del menú */
@@ -46,7 +60,7 @@
 }
 
 .menu-link:hover {
-  color: #f0f0f0;
+  color: #4a4a4a;
   background-color: rgba(255, 255, 255, 0.1); /* Fondo al pasar el ratón */
 }
 
@@ -71,8 +85,8 @@
 .submenu {
   position: absolute;
   top: 100%;
-  left: 50%;
-  transform: translateX(-50%); /* Ajusta el submenú hacia la izquierda por la mitad de su ancho */
+  left: 0;
+  /*transform: translateX(-5%); /* Ajusta el submenú hacia la izquierda por la mitad de su ancho */
   background-color: #fd4f00;
   z-index: 1000; /* Asegúrate de que el submenú esté por encima de otros elementos */
   list-style: none;
@@ -92,7 +106,7 @@
 
 /* Ítem dentro del submenú */
 .submenu-item {
-  margin: 4;
+  margin: 0;
 }
 
 .submenu-link {
@@ -104,6 +118,7 @@
 }
 
 .submenu-link:hover {
+  color: #4a4a4a;
   background-color: rgba(255, 255, 255, 0.2); /* Fondo al pasar el ratón */
 }
 

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ciberseguridad</title>
+    <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/styles.css"> <!-- Enlace al archivo CSS -->
     <link rel="stylesheet" href="assets/css/components/menu.css">
     
@@ -13,9 +14,113 @@
     <h1>Ciberseguridad</h1>
     
     <section>
-        <h2>Principios Básicos</h2>
-        <!-- Contenido se añadirá aquí -->
+        <h2>Guía Rápida del OWASP Top 10</h2>
+        <p>
+            Es un informe de referencia mantenido por el Open Web Application Security Project (OWASP) que enumera y prioriza las diez vulnerabilidades de seguridad más críticas en aplicaciones web. Publicado periódicamente, su objetivo es concienciar a desarrolladores, testers y responsables de seguridad sobre los riesgos más frecuentes como fallos de control de acceso, inyecciones, configuraciones erróneas o dependencias vulnerables y ofrecer pautas claras para detectarlos y mitigarlos desde el diseño hasta la operación.
+        </p>
+        <ul>
+            <li>
+                <strong>A01 Broken Access Control:</strong> usuarios sin privilegios escalan permisos. 
+                <em>Mitigación:</em> políticas “deny-all” en backend, roles claros y auditorías de acceso.
+            </li>
+            <li>
+                <strong>A02 Cryptographic Failures:</strong> uso de cifrados débiles o ausencia de cifrado. 
+                <em>Mitigación:</em> TLS ≥ 1.2, AES-256 y gestión segura de claves.
+            </li>
+            <li>
+                <strong>A03 Injection:</strong> entrada maliciosa (SQL, XSS, OS) no validada. 
+                <em>Mitigación:</em> consultas parametrizadas, escapado de entrada y WAF.
+            </li>
+            <li>
+                <strong>A04 Insecure Design:</strong> ausencia de threat modeling y patrones seguros. 
+                <em>Mitigación:</em> threat modeling temprano y principios de diseño seguro.
+            </li>
+            <li>
+                <strong>A05 Security Misconfiguration:</strong> configuraciones por defecto, puertos abiertos o parches faltantes. 
+                <em>Mitigación:</em> endurecer servidores, desactivar debug y actualizaciones automáticas.
+            </li>
+            <li>
+                <strong>A06 Vulnerable and Outdated Components:</strong> dependencias con vulnerabilidades conocidas. 
+                <em>Mitigación:</em> actualizar/eliminar librerías, alertas automáticas de CVE.
+            </li>
+            <li>
+                <strong>A07 Identification and Authentication Failures:</strong> contraseñas débiles, tokens reutilizados o sesiones inseguras. 
+                <em>Mitigación:</em> MFA, contraseñas fuertes, bloqueo tras intentos fallidos.
+            </li>
+            <li>
+                <strong>A08 Software and Data Integrity Failures:</strong> artefactos no firmados o sin verificar. 
+                <em>Mitigación:</em> firmar y validar hashes en pipelines CI/CD.
+            </li>
+            <li>
+                <strong>A09 Security Logging and Monitoring Failures:</strong> registro insuficiente de eventos de seguridad. 
+                <em>Mitigación:</em> implementar SIEM, registrar eventos clave y alertas.
+            </li>
+            <li>
+                <strong>A10 Server-Side Request Forgery (SSRF):</strong> servidor realiza peticiones arbitrarias a recursos internos. 
+                <em>Mitigación:</em> validar y filtrar URLs, usar whitelist de dominios.
+            </li>
+        </ul>
+    <section>
+        <h3>Pruebas de Seguridad Estáticas (SAST) vs Dinámicas (DAST)</h3>
+        <p>
+            Las pruebas SAST (Static Application Security Testing) se ejecutan sin correr la aplicación, analizando el código fuente o binarios para detectar vulnerabilidades de programación (inyecciones, validación insegura, criptografía mal aplicada) en etapas tempranas. Integradas en IDEs y pipelines CI/CD, permiten un “shift‑left” eficaz, trazan con precisión la línea de código afectada y abaratan hasta 30× el coste de corrección, aunque suelen arrojar más falsos positivos y no cubren configuraciones de runtime.
+        </p>
+        <p>
+            Por su parte, DAST (Dynamic Application Security Testing) ataca la aplicación ya desplegada, simulando peticiones maliciosas (SQLi, XSS, CSRF, errores de configuración, lógica de negocio) desde un punto de vista “black‑box”. Ideal en QA y pre‑producción sobre un clon de datos sintéticos, revela vulnerabilidades reales explotables y fallos de infraestructura con menor ruido de alertas; su desventaja es que no indica el punto exacto en el código y necesita entornos aislados para no interrumpir servicios.
+        </p>
+        <p>
+            La estrategia más efectiva combina ambos: en Desarrollo/CI un SAST ligero en cada commit bloquea merges inseguros; en nightly builds un SAST profundo cubre rutas no testeadas; en pre-producción un DAST completo identifica fallos de runtime; y en producción, DAST controlado más pentesting manual o IAST garantizan monitoreo continuo. Este enfoque híbrido cubre código, configuraciones, infraestructuras y APIs, cumple estándares (OWASP Top 10, PCI‑DSS) y facilita métricas (MTTD/MTTR, CVSS), todo dentro de una cultura DevSecOps con “security champions” y formación constante.
+        </p>
     </section>
+
+    <section>
+        <h3>Técnicas de Inyección</h3>
+        <p>
+            <strong>SQL Injection (SQLi):</strong>
+        </p>
+        <ul>
+            <li>
+                <strong>Tautología:</strong> El atacante añade a la consulta SQL una condición que siempre es verdadera (por ejemplo … OR '1'='1'), de modo que la base de datos devuelve todos los registros sin necesidad de credenciales válidas.
+            </li>
+            <li>
+                <strong>Union-Based:</strong> Emplea la cláusula UNION para combinar la respuesta legítima con resultados de otras tablas, permitiendo al atacante extraer datos sensibles (usuarios, contraseñas) en una sola petición.
+            </li>
+            <li>
+                <strong>Error-Based:</strong> Se fuerza un error en la base de datos con una subconsulta mal formada; el mensaje de error devuelto por el servidor revela metadatos internos (nombres de tablas, columnas, versiones).
+            </li>
+            <li>
+                <strong>Blind Time-Based:</strong> Similar al anterior, pero se introduce una función de demora (SLEEP(5)) que solo se ejecuta si una condición es cierta; midiendo el retraso de respuesta, se extrae la información oculta.
+            </li>
+            <li>
+                <strong>Blind Boolean-Based:</strong> No hay salida directa: el atacante envía consultas cuyos resultados (TRUE/FALSE) hacen que la página cambie sutilmente, lo que permite inferir carácter a carácter información secreta.
+            </li>
+            <li>
+                <strong>Out-of-Band:</strong> Cuando no hay salida en la respuesta web, se provoca que la base de datos haga peticiones externas (DNS, HTTP) a un servidor controlado por el atacante para filtrar datos.
+            </li>
+            <li>
+                <strong>Evasión de filtros:</strong> Utiliza técnicas de obfuscación —comentarios, codificación URL/hex, mayúsculas/minúsculas mixtas— para evitar que sistemas de defensa detecten el payload malicioso.
+            </li>
+        </ul>
+        <p>
+            <strong>Cross-Site Scripting (XSS):</strong>
+        </p>
+        <ul>
+            <li>
+                <strong>Reflected (Reflejado):</strong> El código malicioso viaja en la URL o en un formulario y el servidor lo “refleja” en la respuesta, de modo que al hacer clic en un enlace comprometido el script se ejecuta instantáneamente en el navegador de la víctima.
+            </li>
+            <li>
+                <strong>Stored (Persistente):</strong> El payload queda guardado en el servidor (por ejemplo en un comentario o perfil), y cada vez que cualquier usuario accede a esa página, el script malicioso se ejecuta en su navegador sin interacción adicional.
+            </li>
+            <li>
+                <strong>Atributo-Based:</strong> Se inyecta código en un atributo HTML (por ejemplo ">&lt;img src=x onerror=alert(1)>), de modo que, al parsear la etiqueta, el navegador interpreta y ejecuta el script alojado en el evento del elemento.
+            </li>
+            <li>
+                <strong>DOM-Based:</strong> La inyección ocurre exclusivamente en el navegador: un fragmento de URL o un valor del DOM se inserta de forma insegura en el código cliente, provocando la ejecución de JavaScript malicioso sin pasar por el servidor.
+            </li>
+        </ul>
+    </section>
+
+
     
     <section>
         <h2>Amenazas Comunes</h2>

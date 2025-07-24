@@ -74,7 +74,7 @@ function showSubmenu(item, hideTimeout) {
  * @param {number} hideTimeout - El temporizador para ocultar el submenú.
  * @param {number} [delay=200] - El tiempo de espera antes de ocultar.
  */
-function hideSubmenu(item, hideTimeout, delay = 200) {
+function hideSubmenu(item, hideTimeout, delay = 4000) {
     const submenu = item.nextElementSibling;
     hideTimeout = setTimeout(() => {
         if (submenu) {
